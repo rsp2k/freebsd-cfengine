@@ -10,7 +10,7 @@ body server control {
     allowallconnects    => { "{{CFENGINE_NETWORK}}" };
     maxconnections      => "100";
     logallconnections   => "true";
-    bindtointerface     => "{{BIND_IP}}";
+    bindtointerface     => "{{CFSERVERD_BIND_IP}}";
     cfruncommand        => "$(sys.workdir)/bin/cf-agent";
     allowusers          => { "root" };
 }
