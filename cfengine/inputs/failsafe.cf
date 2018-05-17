@@ -1,0 +1,26 @@
+#########################################
+#                                       #
+# failsafe.cf - Failsafe configuration  #
+#                                       #
+#########################################
+
+body common control {
+
+    any::
+
+        bundlesequence => { "update" };
+
+        inputs => { "update.cf" };
+}
+
+bundle common failsafe_globals {
+
+vars:
+
+    "f_policyhost" string => "{{POLICY_HOST}}";
+
+classes:
+
+    "f_policy_servers" or => { classify("$(f_policyhost)") };
+}
+

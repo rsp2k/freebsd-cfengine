@@ -1,0 +1,55 @@
+#####################################
+#                                   #
+# cf-serverd.cf - CFEngine Server   #
+#                                   #
+#####################################
+
+body server control {
+    skipverify          => { "{{CFENGINE_NETWORK}}" ;
+    allowconnects       => { "{{CFENGINE_NETWORK}}" };
+    allowallconnects    => { "{{CFENGINE_NETWORK}}" };
+    maxconnections      => "100";
+    logallconnections   => "true";
+    bindtointerface     => "{{BIND_IP}}";
+    cfruncommand        => "$(sys.workdir)/bin/cf-agent";
+    allowusers          => { "root" };
+}
+
+# Make sure that the server is running on the policy servers
+bundle agent server {
+
+vars:
+
+    "rc_d" string => "/usr/local/etc/rc.d";
+
+processes:
+
+    policy_servers::
+
+        "cf-serverd"
+
+            comment       => "Make sure cf-serverd runs on the policy servers",
+            restart_class => "start_cfserverd";
+
+commands:
+
+    start_cfserverd::
+
+        "$(rc_d)/cf-serverd start";
+}
+
+bundle server access_rules {
+
+access:
+
+    # Allow clients access to the input files
+    "$(g.inputfiles)"
+
+        admit => { "{{CFENGINE_NETWORK}}" };
+
+    # Allow clients access to the masterfiles
+    "$(g.masterfiles)"
+
+        admit => { "{{CFENGINE_NETWORK}}" };
+}
+
