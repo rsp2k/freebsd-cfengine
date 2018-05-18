@@ -7,7 +7,7 @@
 body server control {
     allowconnects       => { "CFENGINE_NETWORK" };
     allowallconnects    => { "CFENGINE_NETWORK" };
-    trustkeysfrom	=> { "CFENGINE_NETWORK" };v  
+    trustkeysfrom	=> { "CFENGINE_NETWORK" };
     maxconnections      => "100";
     logallconnections   => "true";
     bindtointerface     => "CFSERVERD_BIND_IP";
