@@ -22,6 +22,14 @@ echo "linking pkg binaries to work dir"
 rm ${CFENGINE_WORK_DIR}/bin/cf-*
 ln -s /usr/local/bin/cf-* ${CFENGINE_WORK_DIR}/bin/
 
+# match paths used by rc scripts installed by pkg
+rm /usr/local/sbin/cf-execd
+ln -s /usr/local/bin/cf-execd /usr/local/sbin
+rm /usr/local/sbin/cf-monitord
+ln -s /usr/local/bin/cf-monitord /usr/local/sbin
+rm /usr/local/sbin/cf-serverd
+ln -s /usr/local/bin/cf-serverd /usr/local/sbin
+
 echo "checkout repo"
 svnlite checkout ${CFENGINE_REPO_URL} ${CFENGINE_CHECKOUT_DIR}
 
