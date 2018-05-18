@@ -23,16 +23,16 @@ echo "checkout repo"
 svnlite checkout ${CFENGINE_REPO_URL} ${CFENGINE_CHECKOUT_DIR}
 
 echo "linking repo dirs to work directory"
-rm -rf ${CFENGINE_CHECKOUT_DIR}/inputs
+rm -rf ${CFENGINE_WORK_DIR}/inputs
 ln -s ${CFENGINE_CHECKOUT_DIR}/inputs ${CFENGINE_WORK_DIR}/
-rm -rf ${CFENGINE_CHECKOUT_DIR}/masterfiles
+rm -rf ${CFENGINE_WORK_DIR}/masterfiles
 ln -s ${CFENGINE_CHECKOUT_DIR}/masterfiles ${CFENGINE_WORK_DIR}/
-rm -rf ${CFENGINE_CHECKOUT_DIR}/ppkeys
+rm -rf ${CFENGINE_WORK_DIR}/ppkeys
 ln -s ${CFENGINE_CHECKOUT_DIR}/ppkeys ${CFENGINE_WORK_DIR}/
-rm ${CFENGINE_CHECKOUT_DIR}/README.md
+rm ${CFENGINE_WORK_DIR}/README.md
 ln -s ${CFENGINE_CHECKOUT_DIR}/README.md ${CFENGINE_WORK_DIR}/README.md
 
-echo "Setting up config files"
+ "Setting up config files"
 
 CFENGINE_SVN_INPUTS=${CFENGINE_CHECKOUT_DIR}/inputs/*
 for file in ${CFENGINE_SVN_INPUTS}
