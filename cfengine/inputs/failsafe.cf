@@ -17,7 +17,7 @@ bundle common failsafe_globals {
 
 vars:
 
-    "f_policyhost" string => "##POLICY_SERVER##";
+    "f_policyhost" string => "POLICY_SERVER";
 
 classes:
 
