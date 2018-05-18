@@ -24,7 +24,8 @@ svnlite checkout ${CFENGINE_REPO_URL} ${CFENGINE_CHECKOUT_DIR}
 echo "linking repo dirs to work directory"
 ln -s ${CFENGINE_CHECKOUT_DIR}/inputs ${CFENGINE_WORK_DIR}/
 ln -s ${CFENGINE_CHECKOUT_DIR}/masterfiles ${CFENGINE_WORK_DIR}/
-ln -s ${CFENGINE_CHECKOUT_DIR}/ ${CFENGINE_WORK_DIR}/
+ln -s ${CFENGINE_CHECKOUT_DIR}/ppkeys ${CFENGINE_WORK_DIR}/
+ln -s ${CFENGINE_CHECKOUT_DIR}/README.md ${CFENGINE_WORK_DIR}/README.md
 
 echo "Setting up config files"
 
