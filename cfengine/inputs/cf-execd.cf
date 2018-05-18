@@ -6,9 +6,9 @@
 
 body executor control {
     splaytime           => "1";
-    mailto              => "{{MAIL_TO}}";
-    mailfrom            => "{{MAIL_FROM}}";
-    smtpserver          => "{{SMTP_SERVER}}";
+    mailto              => "##MAIL_TO##";
+    mailfrom            => "##MAIL_FROM##";
+    smtpserver          => "##SMTP_SERVER##";
     mailmaxlines        => "100";
     schedule            => { "Min05" };
     executorfacility    => "LOG_DAEMON";

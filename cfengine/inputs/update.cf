@@ -8,8 +8,8 @@ bundle agent update {
 
 vars:
 
-    "u_workdir"     string => "{{CFENGINE_WORK_DIR}}";
-    "u_policyhost"  string => "{{POLICY_SERVER}}";
+    "u_workdir"     string => "##CFENGINE_WORK_DIR##";
+    "u_policyhost"  string => "##POLICY_SERVER##";
 
 classes:
 

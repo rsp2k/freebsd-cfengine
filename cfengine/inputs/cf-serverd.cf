@@ -5,12 +5,12 @@
 #####################################
 
 body server control {
-    skipverify          => { "{{CFENGINE_NETWORK}}" ;
-    allowconnects       => { "{{CFENGINE_NETWORK}}" };
-    allowallconnects    => { "{{CFENGINE_NETWORK}}" };
+    skipverify          => { "##CFENGINE_NETWORK##" ;
+    allowconnects       => { "##CFENGINE_NETWORK##" };
+    allowallconnects    => { "##CFENGINE_NETWORK##" };
     maxconnections      => "100";
     logallconnections   => "true";
-    bindtointerface     => "{{CFSERVERD_BIND_IP}}";
+    bindtointerface     => "##CFSERVERD_BIND_IP##";
     cfruncommand        => "$(sys.workdir)/bin/cf-agent";
     allowusers          => { "root" };
 }
@@ -45,11 +45,11 @@ access:
     # Allow clients access to the input files
     "$(g.inputfiles)"
 
-        admit => { "{{CFENGINE_NETWORK}}" };
+        admit => { "##CFENGINE_NETWORK##" };
 
     # Allow clients access to the masterfiles
     "$(g.masterfiles)"
 
-        admit => { "{{CFENGINE_NETWORK}}" };
+        admit => { "##CFENGINE_NETWORK##" };
 }
 
