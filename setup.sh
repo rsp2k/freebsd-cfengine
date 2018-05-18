@@ -16,7 +16,7 @@ pkg install cfengine
 cf-key --output-file=${CFENGINE_KEY}
 
 echo "linking pkg binaries to work dir"
-ln -s /usr/local/bin/cf-* ${CFENGINE_WORK_DIR}
+ln -s /usr/local/bin/cf-* ${CFENGINE_WORK_DIR}/bin/
 
 echo "checkout repo"
 svnlite checkout ${CFENGINE_REPO_URL} ${CFENGINE_CHECKOUT_DIR}
