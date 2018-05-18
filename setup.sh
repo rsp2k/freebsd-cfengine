@@ -13,18 +13,23 @@ CFKEY=${CFENGINE_KEY:-/var/cfengine/ppkeys/localhost.pub}
 
 echo "Installing CFEngine Core 3.11.0-build1"
 pkg install cfengine
-cf-key --output-file=${CFENGINE_KEY}
+#cf-key --output-file=${CFENGINE_KEY}
 
 echo "linking pkg binaries to work dir"
+rm ${CFENGINE_WORK_DIR}/bin/cf-*
 ln -s /usr/local/bin/cf-* ${CFENGINE_WORK_DIR}/bin/
 
 echo "checkout repo"
 svnlite checkout ${CFENGINE_REPO_URL} ${CFENGINE_CHECKOUT_DIR}
 
 echo "linking repo dirs to work directory"
+rm -rf ${CFENGINE_CHECKOUT_DIR}/inputs
 ln -s ${CFENGINE_CHECKOUT_DIR}/inputs ${CFENGINE_WORK_DIR}/
+rm -rf ${CFENGINE_CHECKOUT_DIR}/masterfiles
 ln -s ${CFENGINE_CHECKOUT_DIR}/masterfiles ${CFENGINE_WORK_DIR}/
+rm -rf ${CFENGINE_CHECKOUT_DIR}/ppkeys
 ln -s ${CFENGINE_CHECKOUT_DIR}/ppkeys ${CFENGINE_WORK_DIR}/
+rm ${CFENGINE_CHECKOUT_DIR}/README.md
 ln -s ${CFENGINE_CHECKOUT_DIR}/README.md ${CFENGINE_WORK_DIR}/README.md
 
 echo "Setting up config files"
