@@ -41,13 +41,13 @@ ln -s ${CFENGINE_CHECKOUT_DIR}/README.md ${CFENGINE_WORK_DIR}/README.md
 CFENGINE_SVN_INPUTS=${CFENGINE_CHECKOUT_DIR}/inputs/*
 for file in ${CFENGINE_SVN_INPUTS}
 do
-	sed -i '' 's/{{POLICY_SERVER}}/${POLICY_SERVER}/' ${file}
-	sed -i '' 's/{{CFENGINE_WORK_DIR}}/${CFENGINE_WORK_DIR}/' ${file}
-	sed -i '' 's/{{CFSERVERD_BIND_IP}}/${CFSERVERD_BIND_IP}/' ${file}
-	sed -i '' 's/{{CFENGINE_NETWORK}}/${CFENGINE_NETWORK}/' ${file}
-	sed -i '' 's/{{SMTP_SERVER}}/${SMTP_SERVER}/' ${file}
-	sed -i '' 's/{{MAIL_FROM}}/${MAIL_FROM}/' ${file}
-	sed -i '' 's/{{MAIL_TO}}/${MAIL_TO}/' ${file}
+	sed -i '' "s/{{POLICY_SERVER}}/${POLICY_SERVER}/" ${file}
+	sed -i '' "s/{{CFENGINE_WORK_DIR}}/${CFENGINE_WORK_DIR}/" ${file}
+	sed -i '' "s/{{CFSERVERD_BIND_IP}}/${CFSERVERD_BIND_IP}/" ${file}
+	sed -i '' "s/{{CFENGINE_NETWORK}}/${CFENGINE_NETWORK}/" ${file}
+	sed -i '' "s/{{SMTP_SERVER}}/${SMTP_SERVER}/" ${file}
+	sed -i '' "s/{{MAIL_FROM}}/${MAIL_FROM}/" ${file}
+	sed -i '' "s/{{MAIL_TO}}/${MAIL_TO}/" ${file}
 done
 
 cd ${CFENGINE_WORK_DIR}
