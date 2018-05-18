@@ -29,7 +29,7 @@ ln -s ${CFENGINE_CHECKOUT_DIR}/README.md ${CFENGINE_WORK_DIR}/README.md
 
 echo "Setting up config files"
 
-CFENGINE_SVN_INPUTS=${CFENGINE_CHECKOUT_DIR}/inputs
+CFENGINE_SVN_INPUTS=${CFENGINE_CHECKOUT_DIR}/inputs/*
 for file in ${CFENGINE_SVN_INPUTS}
 do
 	sed -i '' 's/{{POLICY_SERVER}}/${POLICY_SERVER}/' ${file}
