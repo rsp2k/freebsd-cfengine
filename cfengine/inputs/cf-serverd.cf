@@ -5,9 +5,9 @@
 #####################################
 
 body server control {
-    skipverify          => { "CFENGINE_NETWORK" ;
     allowconnects       => { "CFENGINE_NETWORK" };
     allowallconnects    => { "CFENGINE_NETWORK" };
+    trustkeysfrom	=> { "CFENGINE_NETWORK" };v  
     maxconnections      => "100";
     logallconnections   => "true";
     bindtointerface     => "CFSERVERD_BIND_IP";
