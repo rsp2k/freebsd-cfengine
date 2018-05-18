@@ -31,6 +31,7 @@ rm /usr/local/sbin/cf-serverd
 ln -s /usr/local/bin/cf-serverd /usr/local/sbin
 
 echo "checkout repo"
+rm -rf ${CFENGINE_CHECKOUT_DIR}
 svnlite checkout ${CFENGINE_REPO_URL} ${CFENGINE_CHECKOUT_DIR}
 
 echo "linking repo dirs to work directory"
