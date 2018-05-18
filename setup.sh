@@ -15,6 +15,9 @@ echo "Installing CFEngine Core 3.11.0-build1"
 pkg install cfengine
 #cf-key --output-file=${CFENGINE_KEY}
 
+sysrc cf_execd_enable="YES"
+sysrc cf_serverd_enable="YES"
+
 echo "linking pkg binaries to work dir"
 rm ${CFENGINE_WORK_DIR}/bin/cf-*
 ln -s /usr/local/bin/cf-* ${CFENGINE_WORK_DIR}/bin/
@@ -29,6 +32,7 @@ rm -rf ${CFENGINE_WORK_DIR}/masterfiles
 ln -s ${CFENGINE_CHECKOUT_DIR}/masterfiles ${CFENGINE_WORK_DIR}/
 rm -rf ${CFENGINE_WORK_DIR}/ppkeys
 ln -s ${CFENGINE_CHECKOUT_DIR}/ppkeys ${CFENGINE_WORK_DIR}/
+chmod 700 ${CFENGINE_WORK_DIR}/ppkeys
 rm ${CFENGINE_WORK_DIR}/README.md
 ln -s ${CFENGINE_CHECKOUT_DIR}/README.md ${CFENGINE_WORK_DIR}/README.md
 
