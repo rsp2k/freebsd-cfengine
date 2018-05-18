@@ -1,3 +1,5 @@
+# cfengine inputs
+
 * promises.cf - The main CFEngine configuration file
 * update.cf - Contains promises for the agents, just to ensure that the latest promises are updated on the clients.
 * failsafe.cf - This file is run by the agents if there are no configuration files found. It is being used by the agents in order to recover from a failure.
